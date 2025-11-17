@@ -1,6 +1,7 @@
-﻿# Skin Tone Estimation — MST (Monk Skin Tone)
+﻿# Sistema de Recomendação Personalizada de Protetor Solar com Base em Visão Computacional e na Escala Monk
 
-Este projeto implementa um pipeline completo de Deep Learning para estimar tons de pele de forma contínua utilizando a escala Monk Skin Tone (MST), inicialmente focando em faces frontais e posteriormente generalizando para outras poses.
+Detectar e estimar o MST utilizando redes neurais convolucionais e avaliar e gerar formulações personalizadas de protetor solar com base nas características cromáticas individuais e o MST estimado.
+
 
 ## 📋 Índice
 
