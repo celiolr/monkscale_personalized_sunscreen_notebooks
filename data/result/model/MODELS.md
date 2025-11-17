@@ -1,1 +1,1 @@
-Somente os modelos DS-20 treinados estão disponíveis nesta pasta. Para treinar novos modelos, siga as instruções no notebook disponível em [notebooks/Pipeline_best_MST_final.ipynb](../notebooks/Pipeline_best_MST_final.ipynb).
+Somente os modelos DS-20 treinados estão disponíveis nesta pasta. Para treinar novos modelos, siga as instruções no notebook disponível em [notebooks/Pipeline_best_MST_final.ipynb](../../../notebooks/SeuNotebook.ipynb).
