@@ -1,0 +1,33 @@
+﻿# Data files
+data/
+*.zip
+*.tar
+*.gz
+
+# Model files
+#*.pth
+*.pkl
+*.h5
+*.model
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
