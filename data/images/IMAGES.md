@@ -1,4 +1,5 @@
-# FEI Face Database
+# Pessoas
+## FEI Face Database
 http://fei.edu.br/~cet/facedatabase.html
 
 Disclaimer
@@ -11,3 +12,25 @@ The FEI face database is a Brazilian face database that contains a set of face i
 
 Foram usadas algumas imagens desse dataset do conjunto originalimages_part2 (~ 87MB)<br>
 Link para download: https://fei.edu.br/~cet/facedatabase.html#:~:text=originalimages_part2%20(~%2087MB)
+
+## MST Swatches
+https://skintone.google/get-started#:~:text=MST%20Swatches%20are%2010%20single-colored%20rectangles%2C%20and%20each,their%20studies%20and%20for%20reference%20when%20running%20evaluations
+
+MST Swatches are 10 single-colored rectangles, and each swatch provides the most representative color within its MST group. The swatches are created for researchers who need to use the exact color values of the MST scale for their studies and for reference when running evaluations.
+
+Referências da cor MONK Scale Tone (MST).<br>
+A paleta inteira e cada um deles desmembrados em retângulos individuais.<br>
+
+## calibrate_refer_data.json
+Arquivo json com dados de referência para calibração de cor usando as amostras do dataset original.
+
+
+```json
+{
+    "mean_L": 87.61049771471089,
+    "mean_a": 128.51117400085033,
+    "mean_b": 132.42577593537416,
+    "std_L": 35.13450777903315,
+    "std_a": 5.2290901050019025,
+    "std_b": 12.609734192300618
+}
