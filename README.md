@@ -1,25 +1,22 @@
 ﻿# Sistema de Recomendação Personalizada de Protetor Solar com Base em Visão Computacional e na Escala Monk
 
-Detectar e estimar o MST utilizando redes neurais convolucionais e avaliar e gerar formulações personalizadas de protetor solar com base nas características cromáticas individuais e o MST estimado.
-
-
 ## 📋 Índice
 
-- [Visão Geral](#visão-geral)
-- [Características](#características)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Pré-requisitos](#pré-requisitos)
-- [🚀 COMO EXECUTAR NO GOOGLE COLAB](#-como-executar-no-google-colab)
-- [Dataset](#dataset)
-- [Pré-processamento](#pré-processamento)
-- [Modelos Implementados](#modelos-implementados)
-- [Treinamento](#treinamento)
-- [Avaliação](#avaliação)
-- [Licença](#licença)
+* [🎯 Visão Geral](#visão-geral)
+* [✨ Características](#características)
+* [📁 Estrutura do Projeto](#estrutura-do-projeto)
+* [🛠️ Pré-requisitos](#pré-requisitos)
+* [🚀 COMO EXECUTAR NO GOOGLE COLAB](#como-executar-no-google-colab)
+* [📊 Dataset](#dataset)
+* [🔧 Pré-processamento](#pré-processamento)
+* [🤖 Modelos Implementados](#modelos-implementados)
+* [🏋️ Treinamento](#treinamento)
+* [📈 Avaliação](#avaliação)
+* [📝 Licença](#licença)
 
 ## 🎯 Visão Geral
 
-**OBJETIVO GERAL:** Treinar e avaliar modelos de Deep Learning (CNNs) para estimar tons de pele de forma contínua utilizando a escala Monk Skin Tone (MST), inicialmente focando em faces frontais e, posteriormente, generalizando para outras poses.
+**OBJETIVO GERAL:** Treinar e avaliar modelos de Deep Learning (CNNs) para estimar tons de pele de forma contínua utilizando a escala Monk Skin Tone (MST), inicialmente focando em faces frontais e, posteriormente, generalizando para outras poses e gerar formulações personalizadas de protetor solar com base nas características cromáticas individuais e o MST estimado.
 
 ## ✨ Características
 
