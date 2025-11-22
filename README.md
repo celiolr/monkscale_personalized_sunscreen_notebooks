@@ -8,8 +8,7 @@
 - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🛠️ Pré-requisitos](#-pré-requisitos)
 - [🚀 COMO EXECUTAR NO GOOGLE COLAB](#-como-executar-no-google-colab)
-- [📊 Dataset](#-dataset)
-- [🔧 Pré-processamento](#-pré-processamento)
+- [🔧 Processamento](#-processamento)
 - [🤖 Modelos Implementados](#-modelos-implementados)
 - [🏋️ Treinamento](#-treinamento)
 - [📈 Avaliação](#-avaliação)
@@ -62,12 +61,13 @@ skin-tone-estimation-mst/
 ### Arquivo calibrate_refer_data.json:
 - Dados de referência para calibração LAB
 - Obtido da pessoa 52 (aleatório) do dataset original
+
 [voltar ao topo](#-índice)
 
 ## 🛠️ Pré-requisitos
 
-- Google Colab (recomendado) com ambiente Python 3.8+ e NVIDIA T4 GPU se disponível `(Sem GPU o tempo de treinamento será muito maior)`
-- GPU com suporte CUDA
+- Google Colab (recomendado) com ambiente Python 3.8+ e NVIDIA T4 GPU 
+- GPU com suporte CUDA se disponível `(Sem GPU o tempo de treinamento será significativamente maior)`
 - 8GB+ RAM
 - 10GB+ espaço em disco
 
@@ -81,7 +81,7 @@ skin-tone-estimation-mst/
 1. Acesse [Google Colab](https://colab.research.google.com/)
 2. Clique em `File` > `Upload notebook`
 3. Na aba `GitHub`, cole a URL do repositório
-4. Selecione o notebook `notebooks/Pipeline_best_MST_final.ipynb`
+4. Selecione o notebook `notebooks/Pipeline_best_MST_final.ipynb` ou `notebooks/recommendations_MST_sunscreen_notebook.ipynb`
 
 **Opção B - Upload Manual:**
 1. Faça download do notebook do GitHub
@@ -89,7 +89,10 @@ skin-tone-estimation-mst/
 3. Clique em \`File\` > `Upload notebook`
 4. Faça upload do arquivo `.ipynb` baixado
 
-### 📁 Passo 2: Preparar os Dados no Google Drive
+[voltar ao topo](#-índice)
+
+### 📁 Passo 2: Preparar os Dados no Google Drive - Dataset
+Esse parágrafo é sobre o notebook: `notebooks/Pipeline_best_MST_final.ipynb`
 
 1. **Crie a estrutura de pastas no seu Google Drive:**
 ```markdown
@@ -100,11 +103,25 @@ MyDrive/
         │   └── images_dataset.zip
         └── images/
             └── calibrate_refer_data.json
-``` 
+```
 
 2. **Faça upload dos arquivos:**
    - `images_dataset.zip` → na pasta `Dataset/`
    - `calibrate_refer_data.json` → na pasta `images/`
+
+### 📊 Dataset
+
+#### Estrutura do Dataset:
+- **285 pastas** (pessoas) × **15 imagens** por pose - Total: mais 21k de imagens
+- **Poses:** front-facing, left-facing, right-facing, up-facing, down-facing
+  - **front-facing:** 285 pessoas × 15 imagens = 4275 imagens foram usados no treinamento
+- **Formato:** JPEG + JSON com labels MST
+
+#### Labels MST:
+- Arquivo `monk_scale_value.json` em cada pasta de pessoa
+- Valores contínuos de 1.0 a 10.0
+
+[voltar ao topo](#-índice)
 
 ### ⚙️ Passo 3: Executar o Notebook
 
@@ -114,6 +131,7 @@ MyDrive/
 - **AÇÕES EXECUTADAS:** Passos realizados
 - **JUSTIFICATIVA TÉCNICA:** Por que foi implementado dessa forma
 - **🎯 Execução por Seções uma após a outra:** A sequência é importante para evitar erros.
+- **Uso de GPU** (acesse: `Ambiente de execução` > `Alterar o tipo de ambiente de execução` > `GPUs: T4`)
 
 ### ⚠️ AVISOS IMPORTANTES
 
@@ -130,25 +148,11 @@ Se sua estrutura de pastas for diferente, atualize os caminhos.
 Durante o treinamento, monitore:
 - **Loss de treinamento e validação**
 - **Métricas `MAE/MSE/R²`**
-- **Uso de GPU** (acesse: `Ambiente de execução` > `Alterar o tipo de ambiente de execução` > `GPUs: T4`)
+- **Uso de GPU** 
 
 [voltar ao topo](#-índice)
 
-## 📊 Dataset
-
-### Estrutura do Dataset:
-- **285 pastas** (pessoas) × **15 imagens** por pose - Total: mais 21k de imagens
-- **Poses:** front-facing, left-facing, right-facing, up-facing, down-facing
-  - **front-facing:** 285 pessoas × 15 imagens = 4275 imagens foram usados no treinamento
-- **Formato:** JPEG + JSON com labels MST
-
-### Labels MST:
-- Arquivo `monk_scale_value.json` em cada pasta de pessoa
-- Valores contínuos de 1.0 a 10.0
-
-[voltar ao topo](#-índice)
-
-## 🔧 Pré-processamento
+## 🔧 Processamento
 
 ### Pipeline de Processamento:
 
@@ -173,6 +177,7 @@ Durante o treinamento, monitore:
 ## 🤖 Modelos Implementados
 
 ### Arquiteturas:
+`Modelos DS-20 com 20% dos dados para validação`
 1. **EfficientNet-B0** - Balance entre precisão e eficiência
 2. **ConvNeXt-Tiny** - Arquitetura moderna baseada em transformers
 3. **MobileNet-V3-Large** - Otimizado para dispositivos móveis
@@ -207,8 +212,7 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 
 A licença aplica-se exclusivamente ao código-fonte.
 
-Nenhum dataset, imagem, foto de participante ou material sensível (não público)
-está incluído, ou licenciado por este repositório.
+Nenhum dataset, imagem, foto de participante ou material sensível (não público) está incluído, ou licenciado por este repositório.
 
 [voltar ao topo](#-índice)
 
