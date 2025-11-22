@@ -1,5 +1,25 @@
 ﻿# Sistema de Recomendação Personalizada de Protetor Solar com Base em Visão Computacional e na Escala Monk
-** Link para o Artigo que deu origem a esse projeto: [Artigo no ResearchGate](https://www) **
+
+![Python](https://img.shields.io/badge/🐍_Python-3.8+-blue)
+![Colab](https://img.shields.io/badge/☁️_Google_Colab-✅-red)
+![GPU](https://img.shields.io/badge/🎮_GPU-NVIDIA_T4-green)
+![RAM](https://img.shields.io/badge/💾_RAM-8GB+-yellow)
+![Storage](https://img.shields.io/badge/💽_Storage-10GB+-orange)
+![Dataset](https://img.shields.io/badge/📊_Dataset-Disponível-green)<br>
+![EfficientNet-B0](https://img.shields.io/badge/EfficientNet--B0-⚖️_Balance_Precision_Effiency-blue)
+![ConvNeXt-Tiny](https://img.shields.io/badge/ConvNeXt--Tiny-🔄_Modern_Architecture-green)
+![MobileNet-V3](https://img.shields.io/badge/MobileNet--V3--Large-📱_Mobile_Optimized-orange)
+![VGG16](https://img.shields.io/badge/VGG16-🏛️_Classic_Baseline-lightgrey)<br>
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)
+![Non-Commercial](https://img.shields.io/badge/Non--Commercial-🚫-red.svg)
+![Modifications](https://img.shields.io/badge/Modifications-✅-green.svg)
+![Share Alike](https://img.shields.io/badge/Share_Alike-🔄-blue.svg)
+
+## 📚 Publicação
+
+**Artigo Técnico Científico em Revisão:** [![Status](https://img.shields.io/badge/Artigo-🚧_Em_Breve-orange)](https://github.com/celiolr/monkscale_personalized_sunscreen_notebooks/issues/1)
+
+*Em revisão - acompanhe o progresso no link no emoji acima*
 
 ## 📋 Índice
 
@@ -9,7 +29,7 @@
 - [🛠️ Pré-requisitos](#-pré-requisitos)
 - [🚀 COMO EXECUTAR NO GOOGLE COLAB](#-como-executar-no-google-colab)
 - [🔧 Processamento](#-processamento)
-- [🤖 Modelos Implementados](#-modelos-implementados)
+- [🧠 Modelos Implementados](#-modelos-implementados)
 - [🏋️ Treinamento](#-treinamento)
 - [📈 Avaliação](#-avaliação)
 - [📝 Licença](#-licença)
@@ -23,10 +43,10 @@
 
 ## ✨ Características
 
-- **Escala MST Contínua:** Estimativa granular e precisa do tom de pele
+- **Escala MST Contínua:** Estimativa granular e precisa do tom de pele [![Official MST](https://img.shields.io/badge/Google_Official_MST-🎨-4285F4)](https://skintone.google)
 - **Múltiplas Arquiteturas de CNN:** EfficientNet-B0, ConvNeXt-Tiny, MobileNetV3-Large, VGG16
 - **Pré-processamento Avançado:** Detecção facial, normalização LAB, data augmentation
-- **Pipeline Completo:** Treino, validação e teste com separação por identidade
+- **Pipeline Completo de Treinamento dos Modelos:** Treino, validação e teste com separação por identidade
 - **Análise Detalhada:** Métricas de regressão (MAE, MSE, R²) e visualizações
 - **Gerar Formulações Personalizadas de protetor solar** com base nas características cromáticas individuais e o MST estimado
 
@@ -66,10 +86,12 @@ skin-tone-estimation-mst/
 
 ## 🛠️ Pré-requisitos
 
-- Google Colab (recomendado) com ambiente Python 3.8+ e NVIDIA T4 GPU 
-- GPU com suporte CUDA se disponível `(Sem GPU o tempo de treinamento será significativamente maior)`
-- 8GB+ RAM
-- 10GB+ espaço em disco
+- ![Python](https://img.shields.io/badge/🐍_Python-3.8+-blue)  Python 3.8+ 
+- ![Colab](https://img.shields.io/badge/☁️_Google_Colab-✅-red) Google Colab (recomendado)
+- ![GPU](https://img.shields.io/badge/🎮_GPU-NVIDIA_T4-green) GPU com suporte CUDA se disponível (NVIDIA T4 GPU) `(Sem GPU o tempo de treinamento será significativamente maior)`
+- ![RAM](https://img.shields.io/badge/💾_RAM-8GB+-yellow) 8GB+ RAM
+- ![Storage](https://img.shields.io/badge/💽_Storage-10GB+-orange) 10GB+ espaço em disco
+- ![Dataset](https://img.shields.io/badge/📊_Dataset-Disponível-green) Dataset existente (ver [DATASET_INSTRUCTIONS.md](DATASET_INSTRUCTIONS.md) para detalhes)
 
 [voltar ao topo](#-índice)
 
@@ -120,6 +142,10 @@ MyDrive/
 #### Labels MST:
 - Arquivo `monk_scale_value.json` em cada pasta de pessoa
 - Valores contínuos de 1.0 a 10.0
+- Exemplo de conteúdo:
+```json
+{"value": 5.5}
+```
 
 [voltar ao topo](#-índice)
 
@@ -174,35 +200,43 @@ Durante o treinamento, monitore:
 
 [voltar ao topo](#-índice)
 
-## 🤖 Modelos Implementados
+## 🧠 Modelos Implementados
 
 ### Arquiteturas:
-`Modelos DS-20 com 20% dos dados para validação`
-1. **EfficientNet-B0** - Balance entre precisão e eficiência
-2. **ConvNeXt-Tiny** - Arquitetura moderna baseada em transformers
-3. **MobileNet-V3-Large** - Otimizado para dispositivos móveis
-4. **VGG16** - Baseline clássica `(Não disponibilizado no notebook final devido ao desempenho inferior e tamanho do modelo)`
+`Disponibilizados modelos DS-20 com 20% dos dados para validação` [![Model Files](https://img.shields.io/badge/🧠_Model_Files-3_Models_Available-success)](https://github.com/celiolr/monkscale_personalized_sunscreen_notebooks/tree/main/data/result/model)
+
+- ![EfficientNet-B0](https://img.shields.io/badge/EfficientNet--B0-⚖️_Balance_Precision_Effiency-blue) ✅**EfficientNet-B0** - Balance entre precisão e eficiência
+- ![ConvNeXt-Tiny](https://img.shields.io/badge/ConvNeXt--Tiny-🔄_Modern_Architecture-green) ✅**ConvNeXt-Tiny** - Arquitetura moderna baseada em transformers
+- ![MobileNet-V3](https://img.shields.io/badge/MobileNet--V3--Large-📱_Mobile_Optimized-orange) ✅**MobileNet-V3-Large** - Otimizado para dispositivos móveis
+- ![VGG16](https://img.shields.io/badge/VGG16-🏛️_Classic_Baseline-lightgrey) 🚫**VGG16** - Baseline clássica *(Não disponibilizado no notebook final devido ao desempenho inferior e tamanho do modelo)*
 
 [voltar ao topo](#-índice)
 
 ## 🏋️ Treinamento
 
 ### Hiperparâmetros Principais:
-- **Tamanho da imagem:** 224×224
-- **Batch size:** 32
-- **Épocas:** 30
-- **Learning rate:** 1e-4
-- **Divisão:** 65% treino, 20% validação, 15% teste
+
+- ![Image Size](https://img.shields.io/badge/🖼️_Image_Size-224×224-blue) **Tamanho da imagem**: 224×224
+- ![Batch Size](https://img.shields.io/badge/📦_Batch_Size-32-green) **Batch size**: 32
+- ![Epochs](https://img.shields.io/badge/🔄_Epochs-30-orange) **Épocas**: 30
+- ![Learning Rate](https://img.shields.io/badge/📈_Learning_Rate-1e--4-red) **Learning rate**: 1e-4
+- ![Split](https://img.shields.io/badge/📊_Split-65/20/15-purple) **Divisão**: 65% treino, 20% validação, 15% teste
 
 [voltar ao topo](#-índice)
 
 ## 📈 Avaliação
 
 ### Métricas e Resultados Principais:
-- **MAE (Mean Absolute Error):** Erro absoluto médio
-- **MSE (Mean Squared Error):** Erro quadrático médio
-- **R² (Coeficiente de Determinação):** Variabilidade explicada
-- **Formulações Personalizadas de Protetor Solar (cor final):** Baseadas no MST estimado
+
+![MAE](https://img.shields.io/badge/📏_MAE-Mean_Absolute_Error-blue)
+![MSE](https://img.shields.io/badge/📐_MSE-Mean_Squared_Error-green)
+![R²](https://img.shields.io/badge/📊_R²-R_Squared-red)
+![Sunscreen](https://img.shields.io/badge/🧴_Sunscreen-Personalized-purple)
+
+- ![MAE](https://img.shields.io/badge/📏_MAE-Mean_Absolute_Error-blue) **MAE (Mean Absolute Error)**: Erro absoluto médio
+- ![MSE](https://img.shields.io/badge/📐_MSE-Mean_Squared_Error-green) **MSE (Mean Squared Error)**: Erro quadrático médio  
+- ![R²](https://img.shields.io/badge/📊_R²-R_Squared-red) **R² (Coeficiente de Determinação)**: Variabilidade explicada
+- ![Sunscreen](https://img.shields.io/badge/🧴_Sunscreen-Personalized-purple) **Formulações Personalizadas de Protetor Solar**: Baseadas no MST estimado e proporções de pigmentos
 
 [voltar ao topo](#-índice)
 
