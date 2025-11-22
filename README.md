@@ -149,7 +149,7 @@ skin-tone-estimation-mst/
 3. **Siga as instruções** dentro do notebook para detalhes específicos
 4. **Execute** as células sequencialmente
 5. **⚠️ Atente para avisos importantes** antes de algumas células (ex: ambiente de execução, reinicializações, descompactação do dataset)
-6**Aguarde** o processamento (pode demorar alguns minutos)
+6. **Aguarde** o processamento (pode demorar alguns minutos)
 
 [voltar ao topo](#-índice)
 
