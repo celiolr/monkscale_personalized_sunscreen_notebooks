@@ -208,11 +208,28 @@ Durante o treinamento, monitore:
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+Este projeto está licenciado sob a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**.
 
-A licença aplica-se exclusivamente ao código-fonte.
+**Você pode:**
+- ✅ **Compartilhar** — copiar e redistribuir o material
+- ✅ **Adaptar** — remixar, transformar e criar a partir do material
+- 🚫 **Não-Comercial** — não pode usar o material para fins comerciais
+- 🔄 **CompartilharIgual** — se adaptar o material, deve distribuir sob a mesma licença
 
-Nenhum dataset, imagem, foto de participante ou material sensível (não público) está incluído, ou licenciado por este repositório.
+**Sob os termos:**
+- **Atribuição** — Você deve dar o crédito apropriado
+- **NãoComercial** — Você não pode usar o material para fins comerciais
+- **CompartilharIgual** — Se você remixar ou transformar o material, deve distribuir suas contribuições sob a mesma licença
+
+**Resumo:** Você pode copiar e modificar este material para **uso não-comercial**, desde que dê os créditos e compartilhe as modificações sob a mesma licença.
+ual** — Se você remixar ou transformar o material, deve distribuir suas contribuições sob a mesma licença
+
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)
+![Non-Commercial](https://img.shields.io/badge/Non--Commercial-🚫-red.svg)
+![Modifications](https://img.shields.io/badge/Modifications-✅-green.svg)
+![Share Alike](https://img.shields.io/badge/Share_Alike-🔄-blue.svg)
+
+[Ver licença](LICENSE) | [Resumo em português](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)
 
 [voltar ao topo](#-índice)
 
