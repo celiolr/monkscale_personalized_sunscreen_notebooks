@@ -1,5 +1,8 @@
 ﻿# Sistema de Recomendação Personalizada de Protetor Solar com Base em Visão Computacional e na Escala Monk
 
+Este projeto utiliza Visão Computacional e Redes Neurais Convolucionais para estimar o tom de pele na Escala Monk (MST) de forma contínua e, a partir disso, gerar recomendações personalizadas de protetor solar considerando características cromáticas individuais.
+O pipeline inclui pré-processamento completo, detecção facial, calibração LAB, treinamento, avaliação, e geração das recomendações finais.
+
 ![Python](https://img.shields.io/badge/🐍_Python-3.8+-blue)
 ![Colab](https://img.shields.io/badge/☁️_Google_Colab-✅-red)
 ![GPU](https://img.shields.io/badge/🎮_GPU-NVIDIA_T4-green)
@@ -23,7 +26,7 @@
 
 ## 📋 Índice
 
-- [🎯 Visão Geral](#-visão-geral)
+- [🎯 Sobre o Projeto](#-sobre-o-projeto)
 - [✨ Características](#-características)
 - [📁 Estrutura do Projeto](#-estrutura-do-projeto)
 - [🛠️ Pré-requisitos](#-pré-requisitos)
@@ -33,21 +36,48 @@
 - [🏋️ Treinamento](#-treinamento)
 - [📈 Avaliação](#-avaliação)
 - [📝 Licença](#-licença)
+- [🎯 Resultados Esperados](#-resultados-esperados)
 - [💡 Dicas para Execução Bem-sucedida](#-dicas-para-execução-bem-sucedida)
 
-## 🎯 Visão Geral
+## 🎯 Sobre o Projeto
 
-**OBJETIVO GERAL:** Treinar e avaliar modelos de Deep Learning (CNNs) para estimar tons de pele de forma contínua utilizando a escala Monk Skin Tone (MST), inicialmente focando em faces frontais e, posteriormente, generalizando para outras poses e gerar formulações personalizadas de protetor solar com base nas características cromáticas individuais e o MST estimado.
+**OBJETIVO PRINCIPAL:** Desenvolver um sistema de visão computacional para estimar tons de pele usando a escala Monk (MST) e gerar recomendações personalizadas de protetor solar.
+
+### 🎯 O Que Este Projeto Faz:
+- 🔍 **Estima** tons de pele de forma contínua usando a escala MST
+- 🧠 **Utiliza** modelos de Deep Learning (CNNs) para análise facial
+- 🧴 **Gera** formulações personalizadas de protetor solar
+- 📊 **Fornece** métricas detalhadas de precisão
+
+### 🚀 Casos de Uso:
+- **Dermatologia**: Análise automatizada de tons de pele
+- **Cosméticos Personalizados**: Recomendações específicas de protetor solar por tom de pele
+- **Pesquisa Acadêmica**: Estudos sobre diversidade de tons de pele
 
 [voltar ao topo](#-índice)
 
 ## ✨ Características
 
 - **Escala MST Contínua:** Estimativa granular e precisa do tom de pele [![Official MST](https://img.shields.io/badge/Google_Official_MST-🎨-4285F4)](https://skintone.google)
-- **Múltiplas Arquiteturas de CNN:** EfficientNet-B0, ConvNeXt-Tiny, MobileNetV3-Large, VGG16
-- **Pré-processamento Avançado:** Detecção facial, normalização LAB, data augmentation
-- **Pipeline Completo de Treinamento dos Modelos:** Treino, validação e teste com separação por identidade
-- **Análise Detalhada:** Métricas de regressão (MAE, MSE, R²) e visualizações
+- **Múltiplas Arquiteturas de CNN:**
+  - EfficientNet-B0
+  - ConvNeXt-Tiny
+  - MobileNetV3-Large
+  - VGG16
+- **Pré-processamento Avançado:** 
+  - Detecção facial
+  - Normalização LAB
+  - Data augmentation
+- **Pipeline Completo de Treinamento dos Modelos:** 
+  - Treino
+  - Validação
+  - Teste
+  - Separação por identidade
+- **Análise Detalhada:** 
+  - Métricas de regressão 
+    - MAE
+    - MSE
+    - R²
 - **Gerar Formulações Personalizadas de protetor solar** com base nas características cromáticas individuais e o MST estimado
 
 [voltar ao topo](#-índice)
@@ -81,6 +111,17 @@ skin-tone-estimation-mst/
 ### Arquivo calibrate_refer_data.json:
 - Dados de referência para calibração LAB
 - Obtido da pessoa 52 (aleatório) do dataset original
+- Exemplo de conteúdo:
+```json
+{
+    "mean_L": 87.61049771471089,
+    "mean_a": 128.51117400085033,
+    "mean_b": 132.42577593537416,
+    "std_L": 35.13450777903315,
+    "std_a": 5.2290901050019025,
+    "std_b": 12.609734192300618
+}
+```
 
 [voltar ao topo](#-índice)
 
@@ -97,49 +138,33 @@ skin-tone-estimation-mst/
 
 ## 🚀 COMO EXECUTAR NO GOOGLE COLAB
 
-### 📥 Passo 1: Carregar o Notebook no Colab
+### ⚡ Execução Rápida no Google Colab:
 
-**Opção A - Diretamente do GitHub:**
-1. Acesse [Google Colab](https://colab.research.google.com/)
-2. Clique em `File` > `Upload notebook`
-3. Na aba `GitHub`, cole a URL do repositório
-4. Selecione o notebook `notebooks/Pipeline_best_MST_final.ipynb` ou `notebooks/recommendations_MST_sunscreen_notebook.ipynb`
+[![Open in Colab](https://img.shields.io/badge/🔗_Abrir_no_Colab-Treinamento_Modelo-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/celiolr/monkscale_personalized_sunscreen_notebooks/blob/main/notebooks/pipeline_best_MST_final.ipynb)
+[![Open in Colab](https://img.shields.io/badge/🔗_Abrir_no_Colab-Recomendações_Fotoprotetor-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/celiolr/monkscale_personalized_sunscreen_notebooks/blob/main/notebooks/recommendations_MST_sunscreen_notebook.ipynb)
 
-**Opção B - Upload Manual:**
-1. Faça download do notebook do GitHub
-2. Acesse [Google Colab](https://colab.research.google.com/)
-3. Clique em \`File\` > `Upload notebook`
-4. Faça upload do arquivo `.ipynb` baixado
+**Passo a Passo:**
+1. **Clique** em um dos badges acima para abrir no Colab
+2. **Conecte** a uma GPU: `Ambiente de execução` > `Alterar o tipo de ambiente de execução` > `GPUs: T4`
+3. **Siga as instruções** dentro do notebook para detalhes específicos
+4. **Execute** as células sequencialmente
+5. **⚠️ Atente para avisos importantes** antes de algumas células (ex: ambiente de execução, reinicializações, descompactação do dataset)
+6**Aguarde** o processamento (pode demorar alguns minutos)
 
 [voltar ao topo](#-índice)
 
-### 📁 Passo 2: Preparar os Dados no Google Drive - Dataset
+### 📁 Preparar os Dados no Google Drive - Dataset
 Esse parágrafo é sobre o notebook: `notebooks/Pipeline_best_MST_final.ipynb`
 
-1. **Crie a estrutura de pastas no seu Google Drive:**
-```markdown
-MyDrive/
-└── IA_CD_UFES/
-    └── TCC/
-        ├── Dataset/
-        │   └── images_dataset.zip
-        └── images/
-            └── calibrate_refer_data.json
-```
+#### 📊 Dataset
 
-2. **Faça upload dos arquivos:**
-   - `images_dataset.zip` → na pasta `Dataset/`
-   - `calibrate_refer_data.json` → na pasta `images/`
-
-### 📊 Dataset
-
-#### Estrutura do Dataset:
+##### Estrutura do Dataset:
 - **285 pastas** (pessoas) × **15 imagens** por pose - Total: mais 21k de imagens
 - **Poses:** front-facing, left-facing, right-facing, up-facing, down-facing
   - **front-facing:** 285 pessoas × 15 imagens = 4275 imagens foram usados no treinamento
 - **Formato:** JPEG + JSON com labels MST
 
-#### Labels MST:
+##### Labels MST:
 - Arquivo `monk_scale_value.json` em cada pasta de pessoa
 - Valores contínuos de 1.0 a 10.0
 - Exemplo de conteúdo:
@@ -148,26 +173,6 @@ MyDrive/
 ```
 
 [voltar ao topo](#-índice)
-
-### ⚙️ Passo 3: Executar o Notebook
-
-**📌 IMPORTANTE:** Execute as células **SEQUENCIALMENTE** conforme a numeração. Cada célula está documentada com:
-
-- **OBJETIVO:** O que a célula faz
-- **AÇÕES EXECUTADAS:** Passos realizados
-- **JUSTIFICATIVA TÉCNICA:** Por que foi implementado dessa forma
-- **🎯 Execução por Seções uma após a outra:** A sequência é importante para evitar erros.
-- **Uso de GPU** (acesse: `Ambiente de execução` > `Alterar o tipo de ambiente de execução` > `GPUs: T4`)
-
-### ⚠️ AVISOS IMPORTANTES
-
-**⚠️ REINICIALIZAÇÃO NECESSÁRIA:**
-Nas células iniciais após instalar dependências, reinicie o ambiente de execução:
-- Clique em `Ambiente de execução` > `Reiniciar ambiente de execução`
-
-**⚠️ AJUSTE DE PATHS:**
-Nas células indicadas, verifique e ajuste os paths se necessário:
-Se sua estrutura de pastas for diferente, atualize os caminhos.
 
 ### 📊 Monitoramento
 
@@ -203,12 +208,16 @@ Durante o treinamento, monitore:
 ## 🧠 Modelos Implementados
 
 ### Arquiteturas:
-`Disponibilizados modelos DS-20 com 20% dos dados para validação` [![Model Files](https://img.shields.io/badge/🧠_Model_Files-3_Models_Available-success)](https://github.com/celiolr/monkscale_personalized_sunscreen_notebooks/tree/main/data/result/model)
+Disponibilizados modelos com tag DS-20 com 20% dos dados para validação [![Model Files](https://img.shields.io/badge/🧠_Model_Files-3_Models_Available-success)](https://github.com/celiolr/monkscale_personalized_sunscreen_notebooks/tree/main/data/result/model)
 
-- ![EfficientNet-B0](https://img.shields.io/badge/EfficientNet--B0-⚖️_Balance_Precision_Effiency-blue) ✅**EfficientNet-B0** - Balance entre precisão e eficiência
-- ![ConvNeXt-Tiny](https://img.shields.io/badge/ConvNeXt--Tiny-🔄_Modern_Architecture-green) ✅**ConvNeXt-Tiny** - Arquitetura moderna baseada em transformers
-- ![MobileNet-V3](https://img.shields.io/badge/MobileNet--V3--Large-📱_Mobile_Optimized-orange) ✅**MobileNet-V3-Large** - Otimizado para dispositivos móveis
-- ![VGG16](https://img.shields.io/badge/VGG16-🏛️_Classic_Baseline-lightgrey) 🚫**VGG16** - Baseline clássica *(Não disponibilizado no notebook final devido ao desempenho inferior e tamanho do modelo)*
+| Modelo                                                                      | Status                                     | Melhor Uso |
+|-----------------------------------------------------------------------------|--------------------------------------------|------------|
+| ![ConvNeXt-Tiny](https://img.shields.io/badge/ConvNeXt--Tiny-✅🔄_Modern_Architecture-blue)        | **Moderno/Recomendado/Melhor no Contexto** | Arquitetura baseada em transformers |
+| ![EfficientNet-B0](https://img.shields.io/badge/EfficientNet--B0-✅⚖️_Balance_Precision_Effiency-green)   | **Moderno/Eficiente**                               | Balance ideal entre precisão e velocidade |
+| ![MobileNet-V3](https://img.shields.io/badge/MobileNet--V3--Large-✅📱_Mobile_Optimized-orange) | **Eficiente**                              | Otimizado para dispositivos móveis |
+| ![VGG16](https://img.shields.io/badge/VGG16-🚫🏛️_Classic_Baseline-lightgrey)                   | Não incluído                               | Baseline para comparação |
+
+[📋 Ver documentação dos modelos](https://github.com/celiolr/monkscale_personalized_sunscreen_notebooks/blob/main/data/result/model/MODELS.md)
 
 [voltar ao topo](#-índice)
 
@@ -228,11 +237,6 @@ Durante o treinamento, monitore:
 
 ### Métricas e Resultados Principais:
 
-![MAE](https://img.shields.io/badge/📏_MAE-Mean_Absolute_Error-blue)
-![MSE](https://img.shields.io/badge/📐_MSE-Mean_Squared_Error-green)
-![R²](https://img.shields.io/badge/📊_R²-R_Squared-red)
-![Sunscreen](https://img.shields.io/badge/🧴_Sunscreen-Personalized-purple)
-
 - ![MAE](https://img.shields.io/badge/📏_MAE-Mean_Absolute_Error-blue) **MAE (Mean Absolute Error)**: Erro absoluto médio
 - ![MSE](https://img.shields.io/badge/📐_MSE-Mean_Squared_Error-green) **MSE (Mean Squared Error)**: Erro quadrático médio  
 - ![R²](https://img.shields.io/badge/📊_R²-R_Squared-red) **R² (Coeficiente de Determinação)**: Variabilidade explicada
@@ -242,28 +246,42 @@ Durante o treinamento, monitore:
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International**.
+Este projeto está licenciado sob a **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**.
 
-**Você pode:**
-- ✅ **Compartilhar** — copiar e redistribuir o material
-- ✅ **Adaptar** — remixar, transformar e criar a partir do material
-- 🚫 **Não-Comercial** — não pode usar o material para fins comerciais
-- 🔄 **CompartilharIgual** — se adaptar o material, deve distribuir sob a mesma licença
+**Em resumo, você pode:**
+* ✅ Compartilhar e Adaptar (Remixar/Transformar).
 
-**Sob os termos:**
-- **Atribuição** — Você deve dar o crédito apropriado
-- **NãoComercial** — Você não pode usar o material para fins comerciais
-- **CompartilharIgual** — Se você remixar ou transformar o material, deve distribuir suas contribuições sob a mesma licença
+**Você deve:**
+* ⚠️ Dar Crédito Apropriado (Atribuição).
+* 🚫 Usar Apenas para Fins Não-Comerciais (NonCommercial).
+* 🔄 Distribuir as Adaptações sob a Mesma Licença (ShareAlike).
+
+* [**Ver o texto completo da Licença (Inglês)**](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
+* [**Ver o Resumo da Licença (Português)**](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt)
 
 **Resumo:** Você pode copiar e modificar este material para **uso não-comercial**, desde que dê os créditos e compartilhe as modificações sob a mesma licença.
-ual** — Se você remixar ou transformar o material, deve distribuir suas contribuições sob a mesma licença
 
 ![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)
 ![Non-Commercial](https://img.shields.io/badge/Non--Commercial-🚫-red.svg)
 ![Modifications](https://img.shields.io/badge/Modifications-✅-green.svg)
 ![Share Alike](https://img.shields.io/badge/Share_Alike-🔄-blue.svg)
 
-[Ver licença](LICENSE) | [Resumo em português](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt_BR)
+[Ver licença](LICENSE)
+
+[voltar ao topo](#-índice)
+
+## 🎯 Resultados Esperados
+
+### ✅ Ao Executar o Projeto, Você Obterá:
+- **Modelos Treinados**: CNNs capazes de estimar tons de pele MST
+- **Métricas de Performance**: MAE, MSE, R² detalhados
+- **Recomendações Personalizadas**: Formulações de protetor solar por tom de pele
+- **Visualizações**: Gráficos de predição e análise de erros
+
+### 📈 Aplicações Práticas:
+- 🏥 **Clínicas**: Triagem automatizada de tons de pele
+- 💄 **Cosméticos**: Produtos personalizados por tom
+- 🎓 **Educação**: Ferramenta de ensino sobre diversidade de pele
 
 [voltar ao topo](#-índice)
 
